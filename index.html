@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Natural Language Calculator</title>
+</head>
+<body>
+  <h1>Expense Calculator</h1>
+  <form id="calculatorForm">
+    <textarea id="inputArea" rows="10" cols="50"></textarea><br>
+    <button type="submit">Calculate</button>
+  </form>
+  <div id="results"></div>
+
+  <script>
+    const form = document.getElementById('calculatorForm');
+    const resultsDiv = document.getElementById('results');
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent default form submission
+      const inputText = document.getElementById('inputArea').value;
+
+      fetch('/calculate', { // Send data to server
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ input: inputText })
+      })
+      .then(response => response.json())
+      .then(data => {
+        resultsDiv.textContent = data.result; // Display results
+      });
+    });
+  </script>
+</body>
+</html>
