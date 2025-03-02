@@ -61,6 +61,10 @@ Rent
 -   Express.js
 -   Body-parser
 
+### Demo
+
+![Screenshot-Expense-Calculator](/Screenshot-Expense-Calculator.png?raw=true "Expense Calculator")
+
 ### Contributing
 
 Feel free to submit pull requests to improve the application.
